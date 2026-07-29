@@ -25,9 +25,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
+import org.springframework.test.context.bean.override.mockito.MockitoSpyBean;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
@@ -74,7 +74,7 @@ class MessageProcessorTest {
             .registerModule(new JavaTimeModule())
             .registerModule(new Jdk8Module());
 
-    @MockBean
+    @MockitoBean
     private LaunchDarklyFeatureFlagProvider launchDarklyFeatureFlagProvider;
 
     @Mock
@@ -92,7 +92,7 @@ class MessageProcessorTest {
     @Autowired
     private DatabaseMessageConsumer databaseMessageConsumer;
 
-    @SpyBean
+    @MockitoSpyBean
     private CcdEventProcessor ccdEventProcessor;
 
     private ListAppender<ILoggingEvent> listAppender;

@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import uk.gov.hmcts.reform.wacaseeventhandler.clients.DatabaseMessageConsumer;
 import uk.gov.hmcts.reform.wacaseeventhandler.clients.LaunchDarklyFeatureFlagProvider;
 import uk.gov.hmcts.reform.wacaseeventhandler.entity.CaseEventMessageEntity;
@@ -42,10 +42,10 @@ class CcdMessageProcessorExecutorTest {
     private ListAppender<ILoggingEvent> listAppender;
     private Logger logger;
 
-    @MockBean
+    @MockitoBean
     private CaseEventMessageRepository caseEventMessageRepository;
 
-    @MockBean
+    @MockitoBean
     private LaunchDarklyFeatureFlagProvider featureFlagProvider;
 
     @Mock

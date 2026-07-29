@@ -74,7 +74,6 @@ public final class TestFixtures {
         }
 
         caseEventMessageEntity.setHoldUntil(LocalDateTime.now());
-        caseEventMessageEntity.setSequence(10L);
         return caseEventMessageEntity;
     }
 }
